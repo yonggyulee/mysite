@@ -59,7 +59,7 @@ python manage.py createsuperuser
     2) settings.py 에 설정작업
         TEMPLATES 변수에 'DIRS': [os.path.join(BASE_DIR,'templates')] 세팅한다
 
-10. /assets/** URL을 /statics/ 경로로 매핑
+10. /assets/** URL을 /statics/ 경로로 매핑(settings.py)
     STATICFILES_DIRS = (
         os.path.join(BASE_DiR, 'statics'),
     )
