@@ -37,31 +37,13 @@
 				<div class="pager">
 					<ul>
 						<li><a href="">◀</a></li>
-						<li class="{% if page == firstpage %} selected {% endif %}">
-							{% if firstpage > totalpage  %}{{ firstpage }}
-							{% elif page != firstpage %}<a href="/board?page={{ firstpage }}">{{ firstpage }}</a>
+						{% for p in pages %}
+						<li class="{% if page == p %} selected {% endif %}">
+							{% if p > totalpage  %}{{ p }}
+							{% elif page != p %}<a href="/board?page={{ p }}">{{ p }}</a>
 							{% endif %}
 						</li>
-						<li class="{% if page == (firstpage | add:1) %} selected {% endif %}">
-							{% if (firstpage | add:1) > totalpage  %}{{ firstpage | add:1 }}
-							{% if page != (firstpage | add:1) %}<a href="/board?page={{ firstpage | add:1 }}">{{ firstpage | add:1 }}</a>
-							{% endif %}
-						</li>
-						<li class="{% if page == (firstpage | add:2) %} selected {% endif %}">
-							{% if (firstpage | add:2) > totalpage  %}{{ firstpage | add:2 }}
-							{% if page != (firstpage | add:2) %}<a href="/board?page={{ firstpage | add:2 }}">{{ firstpage | add:2 }}</a>
-							{% endif %}
-						</li>
-						<li class="{% if page == (firstpage | add:3) %} selected {% endif %}">
-							{% if (firstpage | add:3) > totalpage  %}{{ firstpage | add:3 }}
-							{% if page != (firstpage | add:3) %}<a href="/board?page={{ firstpage | add:3 }}">{{ firstpage | add:3 }}</a>
-							{% endif %}
-						</li>
-						<li class="{% if page == (firstpage | add:4) %} selected {% endif %}">
-							{% if (firstpage | add:4) > totalpage  %}{{ firstpage | add:4 }}
-							{% if page != (firstpage | add:4) %}<a href="/board?page={{ firstpage | add:4 }}">{{ firstpage | add:4 }}</a>
-							{% endif %}
-						</li>
+						{% endfor %}
 						<li><a href="">▶</a></li>
 					</ul>
 				</div>					

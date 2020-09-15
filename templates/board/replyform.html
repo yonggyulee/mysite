@@ -5,8 +5,12 @@
 <{% endblock %}
 {% block content %}
 			<div id="board">
-				<form class="board-form" method="post" action="/board">
+				<form class="board-form" method="post" action="/board/reply">
+					{% csrf_token %}
 					<input type = "hidden" name = "a" value="write">
+					<input type = "hidden" name = "parent_g_no" value="{{ parentboard.g_no }}">
+					<input type = "hidden" name = "parent_o_no" value="{{ parentboard.o_no }}">
+					<input type = "hidden" name = "parent_depth" value="{{ parentboard.depth }}">
 					<table class="tbl-ex">
 						<tr>
 							<th colspan="2">글쓰기</th>
