@@ -39,7 +39,7 @@
 						<li><a href="">◀</a></li>
 						{% for p in pages %}
 						<li class="{% if page == p %} selected {% endif %}">
-							{% if p > totalpage  %}{{ p }}
+							{% if p > totalpage or page == p  %}{{ p }}
 							{% elif page != p %}<a href="/board?page={{ p }}">{{ p }}</a>
 							{% endif %}
 						</li>
