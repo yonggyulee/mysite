@@ -29,14 +29,14 @@
 						<td>{{ board.name }}</td>
 						<td>{{ board.hit }}</td>
 						<td>{{ board.reg_date }}</td>
-						<td><a href="/board/delete?no={{board.no}}" class="del">삭제</a></td>
+						<td><a href="/board/delete?page={{page}}&no={{board.no}}" class="del">삭제</a></td>
 					</tr>
 					{% endfor %}
 				</table>
 				<!-- pager 추가 -->
 				<div class="pager">
 					<ul>
-						<li><a href="">◀</a></li>
+						<li><a href="/board?page={% if page < 6 %} 1 {% else %} {{ pages.0 | sub:1 }} {% endif %}">◀</a></li>
 						{% for p in pages %}
 						<li class="{% if page == p %} selected {% endif %}">
 							{% if p > totalpage or page == p  %}{{ p }}
@@ -44,7 +44,7 @@
 							{% endif %}
 						</li>
 						{% endfor %}
-						<li><a href="">▶</a></li>
+						<li><a href="/board?page={{ nextpages }}">▶</a></li>
 					</ul>
 				</div>					
 				<!-- pager 추가 -->
